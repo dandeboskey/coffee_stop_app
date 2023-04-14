@@ -28,8 +28,8 @@ app.get("/", function (req, res) {
 
 /** You can add your own URLS here **/
 
-app.get('/t1', function (req, res) {
-    res.sendFile(publicPath + '/t1.html');
+app.get('/capacity.html', function (req, res) {
+    res.sendFile(publicPath + '/capacity.html');
 });
 app.get('/t2', function (req, res) {
     res.sendFile(publicPath + '/t2.html');
