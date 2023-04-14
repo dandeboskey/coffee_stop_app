@@ -1,0 +1,25 @@
+/* Main color scheme */
+:root {
+    --primary: #413620;
+    --secondary: #9C6615;
+    --accent: #D8DCFF;
+    --highlight: #995D81;
+  }
+  
+  body {
+    font-family: "Roboto", sans-serif;
+    background-color: var(--accent);
+    color: var(--primary);
+  }
+  
+  .navbar-brand {
+    color: var(--primary);
+  }
+  
+  .nav-link {
+    color: var(--secondary);
+  }
+  
+  .nav-link:hover {
+    color: var(--highlight);
+  
