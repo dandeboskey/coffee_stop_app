@@ -28,14 +28,14 @@ app.get("/", function (req, res) {
 
 /** You can add your own URLS here **/
 
-app.get('/capacity.html', function (req, res) {
+app.get('/capacity', function (req, res) {
     res.sendFile(publicPath + '/capacity.html');
 });
-app.get('/t2', function (req, res) {
-    res.sendFile(publicPath + '/t2.html');
+app.get('/customdrink', function (req, res) {
+    res.sendFile(publicPath + '/customdrink.html');
 });
-app.get('/t3', function (req, res) {
-    res.sendFile(publicPath + '/t3.html');
+app.get('/home', function (req, res) {
+    res.sendFile(publicPath + '/#');
 });
 app.get('/t4', function (req, res) {
     res.sendFile(publicPath + '/t4.html');
