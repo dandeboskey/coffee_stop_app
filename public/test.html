@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cafes and Coffees</title>
+	<style>
+		body {
+			background-color: #D8DCFF;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		h1 {
+			font-size: 36px;
+			padding: 20px;
+			margin: 0;
+			text-align: center;
+		}
+		.container {
+			margin: 50px auto;
+			max-width: 800px;
+			padding: 20px;
+			background-color: #9C6615;
+          
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.8);
+		}
+		.cafe-list {
+      background-color: #fff;
+			list-style: none;
+			padding: 20px;
+			margin: 0;
+			overflow-y: scroll;
+			max-height: 400px;
+		}
+		.cafe-list li {
+			padding: 20px;
+			border-bottom: 1px solid #ccc;
+		}
+		.cafe-list li:last-child {
+			border-bottom: none;
+		}
+		.cafe-list li:hover {
+			background-color: #f1f1f1;
+			cursor: pointer;
+		}
+		.dropdown {
+			display: none;
+			padding: 10px;
+		}
+		.dropdown.active {
+			display: block;
+		}
+		.dropdown ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		.dropdown ul li {
+			padding: 5px 10px;
+			border-bottom: 1px solid #ccc;
+		}
+		.dropdown ul li:last-child {
+			border-bottom: none;
+		}
+	</style>
+</head>
+<body>
+	<h1>Cafes and Coffees</h1>
+	<div class="container">
+		<ul class="cafe-list">
+
+			<li class="cafe">Cafe 1
+				<div class="dropdown">
+					<ul class="menu-1">
+						<li>Latte</li>
+						<li>Mocha</li>
+						<li>Americano</li>
+					</ul>
+				</div>
+			</li>
+			<li class="cafe">Cafe 2
+				<div class="dropdown">
+					<ul class="menu-2">
+						<li>Espresso</li>
+						<li>Cappuccino</li>
+						<li>Flat White</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+  </div>
+
+
+  <script>
+    // get the dropdown class
+    var dropdown = document.getElementsByClassName("dropdown");
+    // add event listener to show drop down menu
+    dropdown.setAttribute("onClick", "showMenu");
+
+    function showMenu(){
+      
+    }
+    
+  </script>
+</body>

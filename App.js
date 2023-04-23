@@ -28,27 +28,12 @@ app.get("/", function (req, res) {
 
 /** You can add your own URLS here **/
 
-app.get('/t1', function (req, res) {
-    res.sendFile(publicPath + '/t1.html');
-});
-app.get('/t2', function (req, res) {
-    res.sendFile(publicPath + '/t2.html');
-});
-app.get('/t3', function (req, res) {
-    res.sendFile(publicPath + '/t3.html');
-});
-app.get('/t4', function (req, res) {
-    res.sendFile(publicPath + '/t4.html');
-});
-app.get('/t6', function (req, res) {
-    res.sendFile(publicPath + '/t6.html');
-});
-app.get('/t7', function (req, res) {
-    res.sendFile(publicPath + '/t7.html');
+app.get('/history', function (req, res) {
+    res.sendFile(publicPath + '/history.html');
 });
 
 
 //run this server by entering "node App.js" using your command line. 
-   app.listen(port, () => {
-     console.log(`Server is running on http://${host}:${port}`);
-   });
+app.listen(port, () => {
+    console.log(`Server is running on http://${host}:${port}`);
+});
