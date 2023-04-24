@@ -34,6 +34,11 @@ app.get('/capacity', function (req, res) {
 app.get('/customdrink', function (req, res) {
     res.sendFile(publicPath + '/customdrink.html');
 });
+app.get('/history', function (req, res) {
+    res.sendFile(publicPath + '/history.html');
+});
+app.get('/customdrink', function (req, res) {
+    res.sendFile(publicPath + '/customdrink.html');
 app.get('/home', function (req, res) {
     res.sendFile(publicPath + '/#');
 });
