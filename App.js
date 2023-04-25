@@ -28,32 +28,24 @@ app.get("/", function (req, res) {
 
 /** You can add your own URLS here **/
 
-app.get('/capacity', function (req, res) {
-    res.sendFile(publicPath + '/capacity.html');
+app.get('/home', function (req, res) {
+    res.sendFile(publicPath + '/homepage.html');
 });
 app.get('/customdrink', function (req, res) {
     res.sendFile(publicPath + '/customdrink.html');
+});
+
+app.get('/capacity', function (req, res) {
+    res.sendFile(publicPath + '/capacity.html');
 });
 app.get('/history', function (req, res) {
     res.sendFile(publicPath + '/history.html');
 });
-app.get('/customdrink', function (req, res) {
-    res.sendFile(publicPath + '/customdrink.html');
-app.get('/home', function (req, res) {
-    res.sendFile(publicPath + '/#');
-});
-app.get('/t4', function (req, res) {
-    res.sendFile(publicPath + '/t4.html');
-});
-app.get('/t6', function (req, res) {
-    res.sendFile(publicPath + '/t6.html');
-});
-app.get('/t7', function (req, res) {
-    res.sendFile(publicPath + '/t7.html');
-});
-
 
 //run this server by entering "node App.js" using your command line. 
-app.listen(port, () => {
-    console.log(`Server is running on http://${host}:${port}`);
-})});
+   app.listen(port, () => {
+     console.log(`Server is running on http://${host}:${port}`);
+   });
+
+
+

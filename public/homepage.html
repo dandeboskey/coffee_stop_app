@@ -6,49 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
-  <!-- let's include the css file for bootstrap, then our custom css -->
   <link rel="stylesheet" type="text/css" href="/vendors/bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" type="text/css" href="/css/main.css" />
-  
-  <!-- let's also include these jquery scripts. -->
   <script src="/vendors/jquery/jquery-3.3.1.min.js"></script>
   <script src="/vendors/jquery-ui/jquery-ui.min.js"></script>
-  <style>
-    .container-login{
-      background-color: aliceblue;
-      background-image: url("images/login-back.jpeg");
-      padding: 10%;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
-    }
-    .login-details{
-      background-color: white;
-      width: 50%;
-      margin-left: 25%;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
-      padding: 2%;
-      
-    }
-    .login-button{
-      width: 77%;
-      margin-left: 3%;
-      border-radius: 5px;
-      border-color: #9C6615;
-      background-color: #C4A484;
-      color: white;
-      font-weight: bold;
-      
-    }
-  </style>
 </head>
 
 <body>
   <header>
     <nav class="navbar" style="background-color: var(--primary)">
       <div class="container-fluid">
-        <a class="navbar-brand1 navbar-brand" href="#">
+        <a class="navbar-brand1 navbar-brand" href="/home">
             <img src="/images/coffee.png" width="30" height="30" class="d-inline-block align-top" alt="">
             Coffee Stop
         </a>
@@ -61,7 +29,7 @@
               <a class="nav-link" href="/customdrink">Custom Drink</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="history.html">Cafe History</a>
+              <a class="nav-link" href="/history">Cafe History</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/capacity">Cafe Capacity</a>
