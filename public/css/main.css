@@ -18,6 +18,7 @@
     margin-top: 1rem;
     margin-bottom: 2rem;
     font-weight: light;
+    font-family:'Avenir', sans-serif;
   }
   
   .navbar {
@@ -37,8 +38,8 @@
   }
 
   .container-login{
-    background-color: aliceblue;
-    background-image: url("images/login-back.jpeg");
+    background-color: var(--accent);
+    background-image: url("/../images/login-back.jpeg");
     padding: 10%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -128,6 +129,5 @@
       font-size: 1rem;
       margin-bottom: 1.5rem;
     }
-
   }
   
