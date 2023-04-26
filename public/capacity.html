@@ -28,29 +28,31 @@
         text-align: center;
         margin-bottom: 20px;
       }
-      .status {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        background-color: #ccc;
-        color: #fff;
-        font-size: 48px;
-        font-weight: bold;
-      }
-      .status.green {
-        background-color: #8BC34A;
-      }
-      .status.yellow {
-        background-color: #FFC107;
-      }
-      .status.red {
-        background-color: #F44336;
-      }
     </style>
   </head>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Coffee Stop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/customdrink.html">Custom Drink</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Cafe History</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/capacity.html">Cafe Capacity</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
   <body>
     <header>
       <nav class="navbar sticky-top navbar-expand-md navbar-light">
@@ -85,8 +87,7 @@
       <h1>Cafe Name</h1>
       <p>Address: 123 Main St, Anytown USA</p>
       <p>Phone: 555-555-1212</p>
-      <p>Hours: Monday - Friday: 7am - 6pm<br>Saturday: 8am - 5pm<br>Sunday: 9am - 4pm</p>
-      <div class="status green">50</div>
+      <p>Hours: <br>Monday - Friday: 7am - 6pm<br>Saturday: 8am - 5pm<br>Sunday: 9am - 4pm</p>
     </div>
     <script>
       function initMap() {
@@ -102,6 +103,6 @@
         });
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
   </body>
 </html>
