@@ -13,24 +13,19 @@
     color: var(--primary);
   }
   
-  h1 {
-    margin-top: 1.5rem;
-    font-size: 2.5rem;
-  }
-  
   .slogan {
     font-size: 1.25rem;
     margin-top: 1rem;
     margin-bottom: 2rem;
-    font-weight: bold;
+    font-weight: light;
   }
   
   .navbar {
     background-color: var(--primary);
   }
   
-  .navbar-brand1 {
-    color: var(--accent);
+  .navbar-brand {
+    color: white;
   }
   
   .nav-link {
@@ -40,6 +35,8 @@
   .nav-link:hover {
     color: var(--highlight);
   }
+
+
   
   .container-login{
     background-color: aliceblue;
@@ -122,7 +119,7 @@
     width: auto; /* correct proportions to specified height */
     border-radius: 50%; /* makes it a circle */
   }
-  
+
   /* Media query for mobile devices */
   @media (max-width: 767px) {
     h1 {
