@@ -2,7 +2,7 @@
 :root {
     --primary: #413620;
     --secondary: #9C6615;
-    --accent: #FFFFFF;
+    --accent: beige;
     --highlight: #995D81;
   }
   
@@ -36,8 +36,6 @@
     color: var(--highlight);
   }
 
-
-  
   .container-login{
     background-color: aliceblue;
     background-image: url("images/login-back.jpeg");
