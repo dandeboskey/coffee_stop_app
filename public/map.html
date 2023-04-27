@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/vendors/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="css/main.css">
+    <title> Map | Coffee Stop </title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 500px;
+        margin-bottom: 20px;
+      }
+      .container {
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+      }
+      h1 {
+        text-align: center;
+      }
+      p {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      nav ul {
+      list-style-type: none;
+      }
+      nav ul li {
+        display: inline-block;
+        margin-right: 10px;
+      }
+      nav ul li:last-child {
+        margin-right: 0;
+      }
+      nav ul li a {
+        color: #333;
+        text-decoration: none;
+      }
+      nav ul li a:hover {
+        text-decoration: underline;
+      }
+      main {
+        max-width: 1000px;
+        margin: 20px auto;
+        padding: 0 20px;
+      }
+      section {
+        margin-bottom: 20px;
+      }
+      form input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 3px;
+        width: 80%;
+        margin-right: 10px;
+      }
+      form button[type="submit"] {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #0095ff;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar sticky-top navbar-expand-md navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/home">
+            <img src="/../images/coffee.png" width="30" height="30" alt="">
+          </a>
+          <button class="navbar-toggler" style="background-color: var(--secondary)" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" style="color: var(--accent); font-family:'Avenir', sans-serif;" href="/customdrink">Custom Drink</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color: var(--accent); font-family:'Avenir', sans-serif;" href="/history">Cafe History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color: var(--accent); font-family:'Avenir', sans-serif;" href="/map">Map</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color: var(--accent); font-family:'Avenir', sans-serif;" href="/">Log Out</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+  <main>
+    <section>
+      <h1>Find a Coffee Stop</h1>
+      <form action="#" method="get">
+        <input type="text" name="search" placeholder="Search for a cafe">
+        <button type="submit"> Coffee </button>
+      </form>
+    </section>
+    <section>
+      <h2>Cafe Map</h2>
+      <div id="map"></div>
+      <ul id="businesses-list">
+        <li><a href="#">Cafe Name</a></li>
+        <li><a href="#">Cafe name</a></li>
+        <li><a href="#">Cafe name</a></li>
+        <li><a href="#">Cafe name</a></li>
+      </ul>
+    </section>
+  </main>
+
+    <script>
+      function initMap() {
+        var center = {lat: 37.7749, lng: -122.4194};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: center,
+          zoom: 12
+        });
+  
+        var businesses = [
+          {
+            name: 'Business 1',
+            position: {lat: 37.780217, lng: -122.417044}
+          },
+          {
+            name: 'Business 2',
+            position: {lat: 37.774497, lng: -122.424361}
+          },
+          {
+            name: 'Business 3',
+            position: {lat: 37.780740, lng: -122.425383}
+          },
+          {
+            name: 'Business 4',
+            position: {lat: 37.766388, lng: -122.426570}
+          }
+        ];
+        businesses.forEach(function(business) {
+          var marker = new google.maps.Marker({
+            position: business.position,
+            map: map,
+            title: business.name
+          });
+        });
+      }
+    </script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9hYaFYvxcZLqq-NzczgGgSYNIQqPhnFQ&callback=initMap" async defer></script>
+  </body>
+  </html>
