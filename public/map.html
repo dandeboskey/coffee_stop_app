@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/vendors/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="css/main.css">
-    <title> Map | Coffee Stop </title>
+    <title> Map | Coffee Stop by  Team 20 </title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -122,41 +122,69 @@
     </section>
   </main>
 
-    <script>
-      function initMap() {
-        var center = {lat: 37.7749, lng: -122.4194};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: center,
-          zoom: 12
-        });
-  
-        var businesses = [
-          {
-            name: 'Business 1',
-            position: {lat: 37.780217, lng: -122.417044}
-          },
-          {
-            name: 'Business 2',
-            position: {lat: 37.774497, lng: -122.424361}
-          },
-          {
-            name: 'Business 3',
-            position: {lat: 37.780740, lng: -122.425383}
-          },
-          {
-            name: 'Business 4',
-            position: {lat: 37.766388, lng: -122.426570}
-          }
-        ];
-        businesses.forEach(function(business) {
-          var marker = new google.maps.Marker({
-            position: business.position,
-            map: map,
-            title: business.name
-          });
-        });
+  <script>
+    function initMap() {
+  var center = {lat: 37.8715, lng: -122.2730};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: center,
+    zoom: 13
+  });
+
+  var cafes = [
+    {
+      name: 'The Hidden Cafe',
+      position: {lat: 37.869018268513464, lng: -122.28663137728033},
+      address: '1250 Addison St Suite 111, Berkeley, CA 94702',
+      phone: '(415) 585-1029',
+      link: 'https://www.example.com/business1'
+    },
+    {
+      name: 'Starbucks',
+      position: {lat: 37.869360387588706, lng: -122.26807416824197},
+      address: '2224 Shattuck Ave., Berkeley, CA 94704',
+      phone: '(510) 843-6806',
+      link: 'http://localhost:8000/capacity/starbucks.html'
+    },
+    {
+      name: 'Romeos Coffee',
+      position: {lat: 37.86551334048166, lng: -122.25833976143569},
+      address: '2499 Telegraph Ave, Berkeley, CA 94704',
+      phone: '(510) 209-2464',
+      link: 'https://www.example.com/business3'
+    },
+    {
+      name: 'Flames Coffee',
+      position: {lat: 37.96382845737771, lng: -122.21781956217636},
+      address: '2227 Piedmont Ave, Berkeley, CA 94720',
+      phone: '(510) 642-2730',
+      link: 'https://www.example.com/business4'
+    }
+  ];
+
+  var activeInfoWindow = null;
+
+  cafes.forEach(function(cafe) {
+    var marker = new google.maps.Marker({
+      position: cafe.position,
+      map: map,
+      title: cafe.name
+    });
+
+    var infowindow = new google.maps.InfoWindow({
+      content: '<h3>' + cafe.name + '</h3><p>' + cafe.address + '<br>' + cafe.phone + '</p><p><a href="' + cafe.link + '">View Capacity</a></p>'
+    });
+
+    marker.addListener('click', function() {
+      if (activeInfoWindow) {
+        activeInfoWindow.close();
       }
-    </script>
+      infowindow.open(map, marker);
+      activeInfoWindow = infowindow;
+    });
+  });
+}
+
+  </script>
     
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9hYaFYvxcZLqq-NzczgGgSYNIQqPhnFQ&callback=initMap" async defer></script>
   </body>
