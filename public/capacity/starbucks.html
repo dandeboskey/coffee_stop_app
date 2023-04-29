@@ -1,67 +1,95 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Cafe Capacity</title>
-	<style>
-		.fill-bar-wrapper {
-			width: 150px;
-			height: 150px;
-			border-radius: 50%;
-			background-color: #eee;
-			position: relative;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			margin: 0 auto;
-		}
-
-		.fill-bar {
-			width: 120px;
-			height: 120px;
-			border-radius: 50%;
-			background-color: #fff;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-size: 24px;
-			font-weight: bold;
-		}
-
-		.fill-bar::before {
-			content: "";
-			width: 100%;
-			height: 100%;
-			border-radius: 50%;
-			background-color: #3498db;
-			position: absolute;
-			top: 0;
-			left: 0;
-			transform-origin: center;
-			transform: rotate(0deg);
-		}
-	</style>
-</head>
-<body>
-	<h1>Cafe Capacity</h1>
-	<h2>Cafe Name</h2>
-	<p>Address: 123 Main St.</p>
-	<p>Phone: (555) 555-1234</p>
-	<p>Busy Hours: Monday - Friday, 8:00am - 10:00am</p>
-	<div class="fill-bar-wrapper">
-		<div class="fill-bar" id="fill-bar"></div>
-	</div>
-
-	<script>
-		// Set the fill bar percentage dynamically
-		const fillBar = document.querySelector('#fill-bar');
-		const percentage = 75; // Example percentage, replace with actual value
-		const degrees = 360 * percentage / 100;
-		fillBar.style.transform = `rotate(${degrees}deg)`;
-		fillBar.textContent = `${percentage}%`;
-	</script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Cafe Capacity</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cafe Capacity</h1>
+      <div class="cafe-info">
+        <div class="cafe-name">The Coffee Spot</div>
+        <div class="cafe-address">123 Main St.</div>
+        <div class="cafe-phone">(555) 555-1234</div>
+        <div class="cafe-images">
+          <img src="placeholder1.jpg">
+          <img src="placeholder2.jpg">
+          <img src="placeholder3.jpg">
+        </div>
+        <div class="cafe-hours">
+          <h2>Hours</h2>
+          <table>
+            <tr>
+              <th>Day</th>
+              <th>Open</th>
+              <th>Close</th>
+            </tr>
+            <tr>
+              <td>Monday</td>
+              <td>8:00am</td>
+              <td>5:00pm</td>
+            </tr>
+            <tr>
+              <td>Tuesday</td>
+              <td>8:00am</td>
+              <td>5:00pm</td>
+            </tr>
+            <tr>
+              <td>Wednesday</td>
+              <td>8:00am</td>
+              <td>5:00pm</td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td>8:00am</td>
+              <td>5:00pm</td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>8:00am</td>
+              <td>5:00pm</td>
+            </tr>
+            <tr>
+              <td>Saturday</td>
+              <td>9:00am</td>
+              <td>2:00pm</td>
+            </tr>
+            <tr>
+              <td>Sunday</td>
+              <td>Closed</td>
+              <td>Closed</td>
+            </tr>
+          </table>
+        </div>
+        <div class="capacity-meter">
+          <h2>Capacity</h2>
+          <div class="meter">
+            <span class="meter-text">60% Full</span>
+            <div class="mask full">
+              <div class="fill"></div>
+            </div>
+            <div class="mask half">
+              <div class="fill"></div>
+              <div class="fill fix"></div>
+            </div>
+            <div class="mask">
+              <div class="fill"></div>
+              <div class="fill fix"></div>
+            </div>
+            <div class="mask empty">
+              <div class="fill"></div>
+              <div class="fill fix"></div>
+            </div>
+          </div>
+        </div>
+        <div class="busiest-hours">
+          <h2>Busiest Hours</h2>
+          <canvas id="chart"></canvas>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
