@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/vendors/bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" type="text/css" href="/css/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="/vendors/jquery/jquery-3.3.1.min.js"></script>
   <script src="/vendors/jquery-ui/jquery-ui.min.js"></script>
 
@@ -38,13 +39,25 @@
       margin: 0 auto;
       padding: 20px;
     }
+    .fa-star {
+      color: rgba(112, 111, 111, 0.856);
+    }
+
+    .fa-star:hover {
+      color: orange;
+    }
+
+    .fa-star.selected {
+      color: orange;
+    }
+
   </style>
 </head>
 <body>
   <header>
     <nav class="navbar sticky-top navbar-expand-md navbar-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/home">
+        <a class="navbar-brand" href="/homepage.html">
           <img src="/../images/coffee.png" width="30" height="30" alt="">
         </a>
         <button class="navbar-toggler" style="background-color: var(--secondary)" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,10 +81,7 @@
         </div>
       </div>
     </nav>
-<<<<<<< HEAD
     <h1 style="font-family: Optima, serif; font-size: 50px; font-weight: bold">Cafe History</h1>
-=======
->>>>>>> 0b2ace6a0db84af0c0fa2756dd77d142cd66676b
   </header>
 
   <div class="container">
@@ -79,125 +89,404 @@
       <div class="cafe" style="font-family:Optima, serif">
         <img src="/images/flames.jpeg" width="30" height="30" class="d-inline-block align-top" style="border-radius:50%">
         <span style="font-weight:bold">Flames Coffee</span>
-        <br> 
-        <span style="margin-left:60%; font-size: 13px">Visited on 4/24/23</span>
-        <!--<img id="flames-logo" type = "image/x-icon" href="images/flames.jpeg ">-->
+        <span style="float: right; font-size: 13px">Visited on 4/24/23</span>
         <ul class="coffee-list">
-          <li class="coffee">Coffee 1</li>
-          <li class="coffee">Coffee 2</li>
-          <li class="coffee">Coffee 3</li>
-          <button type="button" class="btn btn-primary" style="background-color: #9C6615;" >More Info</button>
+          <li class="coffee">Caramel Latte
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Americana
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Cafe Mocha
+
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+
+          </li>
         </ul>
       </div>
       <div class="cafe" style="font-family: Optima, serif">
-        
+        <img src="/images/starbucks-2.png" width="30" height="30" class="d-inline-block align-top" style="border-radius:50%">
         <span style="font-weight:bold">Starbucks</span>
-        <span style="margin-left:60%; font-size: 13px">Visited on 4/21/23</span>
+        <span style="float: right; font-size: 13px">Visited on 4/21/23</span>
         <ul class="coffee-list">
-          <li class="coffee">Coffee 4</li>
-          <li class="coffee">Coffee 5</li>
-          <li class="coffee">Coffee 6</li>
-          <button type="button" class="btn btn-primary" style="background-color: #9C6615;" >More Info</button>
+          <li class="coffee">Cappuccino
+
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">White Chocholate Mocha
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Vanilla Latte
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          
+
         </ul>
         
       </div>
       <div class="cafe" style="font-family:Optima, serif">
+        <img src="/images/peets.jpeg" width="30" height="30" class="d-inline-block align-top" style="border-radius:50%">
         <span style="font-weight:bold">Peets</span>
-        <span style="margin-left:45%; font-size: 13px">Visited on 4/16/23</span>
+        <span style="float: right; font-size: 13px">Visited on 4/16/23</span>
         <ul class="coffee-list">
-          <li class="coffee">Coffee 7</li>
-          <li class="coffee">Coffee 8</li>
-          <li class="coffee">Coffee 9</li>
-          <button type="button" class="btn btn-primary" style="background-color: #9C6615;" >More Info</button>
+          <li class="coffee">Espresso
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Irish Coffee
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Caramel Machiato
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          
         </ul>
         
       </div>
       <div class="cafe" style="font-family:Optima, serif">
+        <img src="/images/d-bros.png" width="30" height="30" class="d-inline-block align-top" style="border-radius:50%">
         <span style="font-weight:bold">Dutch Bros</span>
-        <span style="margin-left:60%; font-size: 13px">Visited on 4/10/23</span>
+        <span style="float: right; font-size: 13px">Visited on 4/10/23</span>
         <ul class="coffee-list">
-          <li class="coffee">Coffee 10</li>
-          <li class="coffee">Coffee 11</li>
-          <li class="coffee">Coffee 12</li>
-          <button type="button" class="btn btn-primary" style="background-color: #9C6615;" >More Info</button>
+          <li class="coffee">Flat White
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Iced Cinnammon Dolce Latte
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Decaf Vanilla Latte
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          
         </ul>
         
       </div>
       <div class="cafe" style="font-family:Optima, serif">
+        <img src="/images/philz.png" width="30" height="30" class="d-inline-block align-top" style="border-radius:50%">
         <span style="font-weight:bold">Philz</span>
-        <span style="margin-left:45%; font-size: 13px">Visited on 4/01/23</span>
+        <span style="float: right; font-size: 13px">Visited on 4/01/23</span>
         <ul class="coffee-list">
-          <li class="coffee">Coffee 10</li>
-          <li class="coffee">Coffee 11</li>
-          <li class="coffee">Coffee 12</li>
-          <button type="button" class="btn btn-primary" style="background-color: #9C6615;" >More Info</button>
+          <li class="coffee">Hazelnut Latte
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Mango Crema Latte
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Caffe Mocha
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          
         </ul>
         
       </div>
       <div class="cafe" style="font-family:Optima, serif">
+        <img src="/images/romeos.jpeg" width="30" height="30" class="d-inline-block align-top" style="border-radius:50%">
         <span style="font-weight:bold">Romeo's</span>
-        <span style="margin-left:35%; font-size: 13px">Visited on 3/29/23</span>
+        <span style="float: right; font-size: 13px">Visited on 3/29/23</span>
         <ul class="coffee-list">
-          <li class="coffee">Coffee 10</li>
-          <li class="coffee">Coffee 11</li>
-          <li class="coffee">Coffee 12</li>
-          <button type="button" class="btn btn-primary" style="background-color: #9C6615;" >More Info</button>
+          <li class="coffee">Honey Almond Frappuccino
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Flat White
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Matcha Green Tea
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          
         </ul>
         
       </div>
       <div class="cafe" style="font-family:Optima, serif">
-        <span style="font-weight:bold">1974</span>
-        <span style="margin-left:45%; font-size: 13px">Visited on 3/27/23</span>
+        <img src="/images/1951.png" width="30" height="30" class="d-inline-block align-top" style="border-radius:50%">
+        <span style="font-weight:bold">1951 Coffee Company </span>
+        <span style="float:right; font-size: 13px">Visited on 3/27/23</span>
         <ul class="coffee-list">
-          <li class="coffee">Coffee 10</li>
-          <li class="coffee">Coffee 11</li>
-          <li class="coffee">Coffee 12</li>
-          <button type="button" class="btn btn-primary" style="background-color: #9C6615;" >More Info</button>
+          <li class="coffee">Peppermint Mocha
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">London Fog
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Iced Chai Latte
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          
         </ul>
         
       </div>
       <div class="cafe" style="font-family:Optima, serif">
+        <img src="/images/va.png" width="30" height="30" class="d-inline-block align-top" style="border-radius:50%">
         <span style="font-weight:bold">V&A Cafe</span>
-        <span style="margin-left:60%; font-size: 13px">Visited on 3/22/23</span>
+        <span style="float: right; font-size: 13px">Visited on 3/22/23</span>
         <ul class="coffee-list">
-          <li class="coffee">Coffee 10</li>
-          <li class="coffee">Coffee 11</li>
-          <li class="coffee">Coffee 12</li>
-          <button type="button" class="btn btn-primary" style="background-color: #9C6615;" >More Info</button>
+          <li class="coffee">Blonde Roast</li>
+          <li class="coffee">Medium Roast</li>
+          <li class="coffee">Dark Roast</li>
+          
         </ul>
         
       </div>
       <div class="cafe" style="font-family:Optima, serif">
+        <img src="/images/temple.jpeg" width="30" height="30" class="d-inline-block align-top" style="border-radius:50%">
         <span style="font-weight:bold">Temple</span>
-        <span style="margin-left:40%; font-size: 13px">Visited on 3/19/23</span>
+        <span style="float: right; font-size: 13px">Visited on 3/19/23</span>
         <ul class="coffee-list">
-          <li class="coffee">Coffee 10</li>
-          <li class="coffee">Coffee 11</li>
-          <li class="coffee">Coffee 12</li>
-          <button type="button" class="btn btn-primary" style="background-color: #9C6615;" >More Info</button>
+          <li class="coffee">Vanilla Latte
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Dark Roast Coffee
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Mocha Frapuccino
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          
         </ul>
         
       </div>
       <div class="cafe" style="font-family:Optima, serif">
+        <img src="/images/asha.png" width="30" height="30" class="d-inline-block align-top" style="border-radius:50%">
         <span style="font-weight:bold">Asha Tea House</span>
-        <span style="margin-left:60%; font-size: 13px">Visited on 3/17/23</span>
+        <span style="float: right; font-size: 13px">Visited on 3/17/23</span>
         <ul class="coffee-list">
-          <li class="coffee">Coffee 10</li>
-          <li class="coffee">Coffee 11</li>
-          <li class="coffee">Coffee 12</li>
-          <button type="button" class="btn btn-primary" style="background-color: #9C6615;" >More Info</button>
+          <li class="coffee">Cold Brew
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Arabian Mocha
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Italian Roast
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          
         </ul>
         
       </div>
       <div class="cafe" style="font-family:Optima, serif">
-        <link rel="icon" href="images/flames.jpeg">
+        <img src="/images/strada.png" width="30" height="30" class="d-inline-block align-top" style="border-radius:50%">
         <span style="font-weight:bold">Cafe Strada</span>
-        <span style="margin-left:60%; font-size: 13px">Visited on 3/10/23</span>
+        <span style="float: right; font-size: 13px">Visited on 3/10/23</span>
         <ul class="coffee-list">
-          <li class="coffee">Coffee 10</li>
-          <li class="coffee">Coffee 11</li>
-          <li class="coffee">Coffee 12</li>
-          <button type="button" class="btn btn-primary" style="background-color: #9C6615;" >More Info</button>
+          <li class="coffee">French Roast Latte
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Cappuccino
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          <li class="coffee">Americana
+            <input type="hidden" id="rating" name="rating" value="-1">
+            <span class="rating" style = "float: right ;">
+              <i class="ratings_stars fa fa-star" data-rating="1"></i>
+              <i class="ratings_stars fa fa-star" data-rating="2"></i>
+              <i class="ratings_stars fa fa-star" data-rating="3"></i>
+              <i class="ratings_stars fa fa-star" data-rating="4"></i>
+              <i class="ratings_stars fa fa-star" data-rating="5"></i>
+            </span>
+          </li>
+          
         </ul>
         
       </div>
@@ -213,15 +502,28 @@
         coffeeList.classList.toggle('active');
       });
     });
+    function showRating() {
+      document.getElementById("rating").style.display = "block";
+    }
+
+
+    $('.rating').on('click', '.ratings_stars', function () { //$('.rating').on('click', '.ratings_stars', function ()
+      var star = $(this)
+      var coffeeList = $(star).parents("ul");
+      event.stopPropagation();
+      star.addClass('selected')
+      star.prevAll().addClass('selected')
+      //star.removeClass('selected');
+      star.nextAll().removeClass('selected')
+    
+      $('#rating').val(star.data('rating'))
+    });
   </script>
   <script src="/vendors/jquery/jquery-3.3.1.min.js"></script>
   <script src="/vendors/jquery-ui/jquery-ui.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="/vendors/bootstrap/js/bootstrap.js"></script>
-    function showRating() {
-      document.getElementById("rating").style.display = "block";
-    }
-  </script>
-  </script>
+  
+  
 </body>
 
