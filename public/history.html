@@ -10,6 +10,9 @@
   <link rel="stylesheet" type="text/css" href="/css/main.css" />
   <script src="/vendors/jquery/jquery-3.3.1.min.js"></script>
   <script src="/vendors/jquery-ui/jquery-ui.min.js"></script>
+
+  <!-- todo: change dropdown so hovering displays recent coffees with a more info button.
+    more info button should then lead to ratings and stars -->
   
   <title>Cafe List</title>
   <style>
@@ -63,15 +66,16 @@
         </div>
       </div>
     </nav>
-    <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; font-size: 50px;">Cafe History</h1>
+    <h1 style="font-family: Optima, serif; font-size: 50px; font-weight: bold">Cafe History</h1>
   </header>
 
   <div class="container">
     <div class="cafe-list">
-      <div class="cafe" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
+      <div class="cafe" style="font-family:Optima, serif">
         <img src="/images/flames.jpeg" width="30" height="30" class="d-inline-block align-top" style="border-radius:50%">
-        Flames Coffee
-        <span style="margin-left:65%">date: 4/24/23</span>
+        <span style="font-weight:bold">Flames Coffee</span>
+        <br> 
+        <span style="margin-left:60%; font-size: 13px">Visited on 4/24/23</span>
         <!--<img id="flames-logo" type = "image/x-icon" href="images/flames.jpeg ">-->
         <ul class="coffee-list">
           <li class="coffee">Coffee 1</li>
@@ -80,10 +84,10 @@
           <button type="button" class="btn btn-primary" style="background-color: #9C6615;" >More Info</button>
         </ul>
       </div>
-      <div class="cafe" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
+      <div class="cafe" style="font-family: Optima, serif">
         
-        Starbucks
-        <span style="margin-left:74%">date: 4/21/23</span>
+        <span style="font-weight:bold">Starbucks</span>
+        <span style="margin-left:60%; font-size: 13px">Visited on 4/21/23</span>
         <ul class="coffee-list">
           <li class="coffee">Coffee 4</li>
           <li class="coffee">Coffee 5</li>
@@ -92,9 +96,9 @@
         </ul>
         
       </div>
-      <div class="cafe" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
-        Peets
-        <span style="margin-left:78.5%">date: 4/16/23</span>
+      <div class="cafe" style="font-family:Optima, serif">
+        <span style="font-weight:bold">Peets</span>
+        <span style="margin-left:45%; font-size: 13px">Visited on 4/16/23</span>
         <ul class="coffee-list">
           <li class="coffee">Coffee 7</li>
           <li class="coffee">Coffee 8</li>
@@ -103,9 +107,9 @@
         </ul>
         
       </div>
-      <div class="cafe" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
-        Dutch Bros
-        <span style="margin-left:73.5%">date: 4/10/23</span>
+      <div class="cafe" style="font-family:Optima, serif">
+        <span style="font-weight:bold">Dutch Bros</span>
+        <span style="margin-left:60%; font-size: 13px">Visited on 4/10/23</span>
         <ul class="coffee-list">
           <li class="coffee">Coffee 10</li>
           <li class="coffee">Coffee 11</li>
@@ -114,9 +118,9 @@
         </ul>
         
       </div>
-      <div class="cafe" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
-        Phillz 
-        <span style="margin-left:79%">date: 4/01/23</span>
+      <div class="cafe" style="font-family:Optima, serif">
+        <span style="font-weight:bold">Philz</span>
+        <span style="margin-left:45%; font-size: 13px">Visited on 4/01/23</span>
         <ul class="coffee-list">
           <li class="coffee">Coffee 10</li>
           <li class="coffee">Coffee 11</li>
@@ -125,9 +129,9 @@
         </ul>
         
       </div>
-      <div class="cafe" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
-        Romeo's
-        <span style="margin-left:76%">date: 3/29/23</span>
+      <div class="cafe" style="font-family:Optima, serif">
+        <span style="font-weight:bold">Romeo's</span>
+        <span style="margin-left:35%; font-size: 13px">Visited on 3/29/23</span>
         <ul class="coffee-list">
           <li class="coffee">Coffee 10</li>
           <li class="coffee">Coffee 11</li>
@@ -136,9 +140,9 @@
         </ul>
         
       </div>
-      <div class="cafe" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
-        1974
-        <span style="margin-left:80%">date: 3/26/23</span>
+      <div class="cafe" style="font-family:Optima, serif">
+        <span style="font-weight:bold">1974</span>
+        <span style="margin-left:45%; font-size: 13px">Visited on 3/27/23</span>
         <ul class="coffee-list">
           <li class="coffee">Coffee 10</li>
           <li class="coffee">Coffee 11</li>
@@ -147,9 +151,9 @@
         </ul>
         
       </div>
-      <div class="cafe" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
-        V&A Cafe
-        <span style="margin-left:75.5%">date: 3/22/23</span>
+      <div class="cafe" style="font-family:Optima, serif">
+        <span style="font-weight:bold">V&A Cafe</span>
+        <span style="margin-left:60%; font-size: 13px">Visited on 3/22/23</span>
         <ul class="coffee-list">
           <li class="coffee">Coffee 10</li>
           <li class="coffee">Coffee 11</li>
@@ -158,9 +162,9 @@
         </ul>
         
       </div>
-      <div class="cafe" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
-        Temple
-        <span style="margin-left:77%">date: 3/19/23</span>
+      <div class="cafe" style="font-family:Optima, serif">
+        <span style="font-weight:bold">Temple</span>
+        <span style="margin-left:40%; font-size: 13px">Visited on 3/19/23</span>
         <ul class="coffee-list">
           <li class="coffee">Coffee 10</li>
           <li class="coffee">Coffee 11</li>
@@ -169,9 +173,9 @@
         </ul>
         
       </div>
-      <div class="cafe" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
-        Asha Tea House
-        <span style="margin-left:69%">date: 3/17/23</span>
+      <div class="cafe" style="font-family:Optima, serif">
+        <span style="font-weight:bold">Asha Tea House</span>
+        <span style="margin-left:60%; font-size: 13px">Visited on 3/17/23</span>
         <ul class="coffee-list">
           <li class="coffee">Coffee 10</li>
           <li class="coffee">Coffee 11</li>
@@ -180,10 +184,10 @@
         </ul>
         
       </div>
-      <div class="cafe" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
+      <div class="cafe" style="font-family:Optima, serif">
         <link rel="icon" href="images/flames.jpeg">
-        Cafe Strada
-        <span style="margin-left:71%">date: 3/10/23</span>
+        <span style="font-weight:bold">Cafe Strada</span>
+        <span style="margin-left:60%; font-size: 13px">Visited on 3/10/23</span>
         <ul class="coffee-list">
           <li class="coffee">Coffee 10</li>
           <li class="coffee">Coffee 11</li>
@@ -209,6 +213,10 @@
   <script src="/vendors/jquery-ui/jquery-ui.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="/vendors/bootstrap/js/bootstrap.js"></script>
+    function showRating() {
+      document.getElementById("rating").style.display = "block";
+    }
+  </script>
   </script>
 </body>
 
