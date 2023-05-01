@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="/vendors/bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="css/main.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <title> Map | Coffee Stop by  Team 20 </title>
 </head>
     <style>
@@ -49,27 +52,19 @@
       section {
         margin-bottom: 20px;
       }
-      form input[type="text"] {
-        padding: 10px;
-        font-size: 16px;
-        border: none;
-        border-radius: 3px;
-        width: 80%;
-        margin-right: 10px;
+      .btn-add-drink {
+        background-color: var(--primary);
+        color: var(--accent);
+        font-family:'Avenir', sans-serif;
       }
-      form button[type="submit"] {
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #0095ff;
-        color: #fff;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
+      .search-container {
+        text-align: center;
       }
-      #pac-input {
-        height:50px;
-        width:300px;
-        font-size:14pt;
+      #search-box {
+        display: inline-block;
+      }
+      input[type="text"] {
+        width: 200px;
       }
     </style>
   <body>
@@ -104,13 +99,12 @@
 
   <main>
     <section>
-      <input id="pac-input" class="controls" type="text" placeholder="search for a coffee stop :D"/>
-
-      <!--<h1>Find a Coffee Stop</h1>
-        <form action="#" method="get">
-        <input type="text" name="search" placeholder="Search for a cafe">
-        <button type="submit"> Coffee </button>
-      </form>-->
+      <div class="search-container">
+        <div id="search-box">
+          <input id="search-input"  type="text" placeholder="Search for a Coffee Stop...">
+          <button id="search-btn" class="btn-add-drink">Search</button>
+        </div>
+      </div>
 
     </section>
     <section>
@@ -120,69 +114,23 @@
   </main>
 
   <script>
-    function initMap() {
-  var center = {lat: 37.8715, lng: -122.2730};
-  var map = new google.maps.Map(document.getElementById('map'), {
-    center: center,
-    zoom: 13
-  });
-
-  const input = document.getElementById("pac-input");
-  const searchBox = new google.maps.places.SearchBox(input);
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-  map.addListener("bounds_changed", () => {
-    searchBox.setBounds(map.getBounds());
-  });
-  let markers = [];
-  searchBox.addListener("places_changed", () => {
-    const places = searchBox.getPlaces();
-    if (places.length == 0) {
-      return;
-    }
-    markers.forEach((marker) => {
-      marker.setMap(null);
+  function initMap() {
+      var center = {lat: 37.8715, lng: -122.2730};
+      var map = new google.maps.Map(document.getElementById('map'), {
+      center: center,
+      zoom: 13,
     });
-    markers = [];
-    const bounds = new google.maps.LatLngBounds();
-    places.forEach((place) => {
-      if (!place.geometry || !place.geometry.location) {
-        console.log("Returned place contains no geometry");
-        return;
-      }
-      const icon = {
-        url: place.icon,
-        size: new google.maps.Size(71, 71),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(25, 25),
-      };
-      markers.push(
-        new google.maps.Marker({
-          map,
-          icon,
-          title: place.name,
-          position: place.geometry.location,
-        })
-      );
-      if (place.geometry.viewport) {
-        bounds.union(place.geometry.viewport);
-      } else {
-        bounds.extend(place.geometry.location);
-      }
-    });
-    map.fitBounds(bounds);
-  });
-
 
   var cafes = [
     {
       name: 'The Hidden Cafe',
-      position: {lat: 37.869018268513464, lng: -122.28663137728033},
+      position: {lat: 37.868963679517194, lng: -122.28708944427822},
       address: '1250 Addison St Suite 111, Berkeley, CA 94702',
       phone: '(415) 585-1029',
       link1: 'http://localhost:8000/capacity/hiddencafe.html',
       img: '../images/36.jpeg',
-      cap: '<br>' + 'Indoor Seats Available: 3/12' + '<br>' + 'Outdoor Seats Available: 13/13'
+      cap: '<br>' + 'Indoor Seats Available: 3/12' + '<br>' + 'Outdoor Seats Available: 13/13',
+      marker: null
     },
     {
       name: 'Starbucks',
@@ -191,7 +139,8 @@
       phone: '(510) 843-6806',
       link1: 'http://localhost:8000/capacity/starbucks.html',
       img: '../images/59.webp',
-      cap: '<br>' + 'Indoor Seats Available: 15/35' + '<br>' + 'Outdoor Seats Available: 1/5'
+      cap: '<br>' + 'Indoor Seats Available: 15/35' + '<br>' + 'Outdoor Seats Available: 1/5',
+      marker: null
     },
     {
       name: 'Romeos Coffee',
@@ -200,20 +149,23 @@
       phone: '(510) 209-2464',
       link1: 'http://localhost:8000/capacity/romeos.html',
       img: '../images/20.webp',
-      cap: '<br>' + 'Indoor Seats Available: 36/45'
+      cap: '<br>' + 'Indoor Seats Available: 36/45',
+      marker: null
     },
     {
       name: 'Flames Coffee',
       position: {lat: 37.87221443631031, lng: -122.25781554894198},
-      address: '420 South Hall Rd, Berkeley, CA 94704',
+      address: '1000000 South Hall Rd, Berkeley, CA 94704',
       phone: '(510) 642-5215',
       link1: 'http://localhost:8000/capacity/flames.html',
       img: '../images/100.png',
-      cap: '<br>' + 'Indoor Seats Available: 0/22' + '<br>' + 'Outdoor Seats Available: 0/99'
+      cap: '<br>' + 'Indoor Seats Available: 0/22' + '<br>' + 'Outdoor Seats Available: 0/99',
+      marker: null
     }
   ];
 
   var activeInfoWindow = null;
+  var markers = [];
 
   cafes.forEach(function(cafe) {
     var marker = new google.maps.Marker({
@@ -221,13 +173,23 @@
       map: map,
       title: cafe.name,
     });
+    cafe.marker = marker;
 
     var infowindow = new google.maps.InfoWindow({
       content: '<h4>' + cafe.name + '</h4><p>' + cafe.address + '<br>' + cafe.phone + 
-        '</p><p><a href="/customdrink">Add New Drink</a></p>' +
+        '</p><p><a href="/customdrink" class="btn btn-lg btn-add-drink">Add New Drink</a></p>' +
         '<u>' + 'Capacity' + '</u>' + 
           "<div style='text-align:center'><img src=" + cafe.img + " style='width: 100px; height: 100px;'>" + 
-            cafe.cap + '</p><p><a href="' + cafe.link1 + '"> More about this Coffee Stop </a></p>'
+            cafe.cap + '</p><p><a href="' + cafe.link1 + '" class="btn btn-lg btn-add-drink"> More Details </a></p>'
+    });
+
+    document.getElementById("search-btn").addEventListener("click", function() {
+      const query = document.querySelector("#search-box input").value.toLowerCase();
+      cafes.forEach(function(cafe) {
+        if (cafe.name.toLowerCase().includes(query)) {
+          google.maps.event.trigger(cafe.marker, "click");
+        }
+      });
     });
 
     marker.addListener('click', function() {
@@ -238,6 +200,39 @@
       activeInfoWindow = infowindow;
     });
   });
+
+  const input = document.getElementById("pac-input");
+  const searchBox = new google.maps.places.SearchBox(input);
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  map.addListener("bounds_changed", () => {
+    searchBox.setBounds(map.getBounds());
+  });
+
+  const searchInput = document.getElementById("search-input");
+  const searchButton = document.getElementById("search-btn");
+  searchInput.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      searchButton.click();
+    }
+  });
+
+  $(function() {
+  var suggestions = ["The Hidden Cafe", "Flames Coffee", "Romeo's Cafe", "Starbucks"];
+
+  $("#search-input").autocomplete({
+    source: suggestions,
+    select: function(event, ui) {
+      const query = ui.item.value.toLowerCase();
+      cafes.forEach(function(cafe) {
+        if (cafe.name.toLowerCase().includes(query)) {
+          google.maps.event.trigger(cafe.marker, "click");
+        }
+      });
+    }
+  });
+}); 
+
 }
   </script>
     
