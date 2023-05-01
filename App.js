@@ -46,8 +46,16 @@ app.get('/add', function (req, res) {
     res.sendFile(publicPath + '/adddrink.html');
 });
 
+app.get('/shownew', function (req, res) {
+    res.sendFile(publicPath + '/showdrinknew.html');
+});
+
 app.get('/show1', function (req, res) {
     res.sendFile(publicPath + '/showdrink1.html');
+});
+
+app.get('/show2', function (req, res) {
+    res.sendFile(publicPath + '/showdrink2.html');
 });
 
 //run this server by entering "node App.js" using your command line. 
