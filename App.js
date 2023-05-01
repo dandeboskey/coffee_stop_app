@@ -46,6 +46,10 @@ app.get('/add', function (req, res) {
     res.sendFile(publicPath + '/adddrink.html');
 });
 
+app.get('/show1', function (req, res) {
+    res.sendFile(publicPath + '/showdrink1.html');
+});
+
 //run this server by entering "node App.js" using your command line. 
    app.listen(port, () => {
      console.log(`Server is running on http://${host}:${port}`);
