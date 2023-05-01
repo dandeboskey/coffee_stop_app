@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="css/main.css">
     <title> Map | Coffee Stop by  Team 20 </title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
       #map {
         height: 500px;
         margin-bottom: 20px;
@@ -109,7 +104,7 @@
 
   <main>
     <section>
-      <input id="pac-input" class="controls" type="text" placeholder="Find a Coffee Stop :D"/>
+      <input id="pac-input" class="controls" type="text" placeholder="search for a coffee stop :D"/>
 
       <!--<h1>Find a Coffee Stop</h1>
         <form action="#" method="get">
@@ -131,7 +126,6 @@
     center: center,
     zoom: 13
   });
-
 
   const input = document.getElementById("pac-input");
   const searchBox = new google.maps.places.SearchBox(input);
@@ -186,28 +180,36 @@
       position: {lat: 37.869018268513464, lng: -122.28663137728033},
       address: '1250 Addison St Suite 111, Berkeley, CA 94702',
       phone: '(415) 585-1029',
-      link1: 'https://www.example.com/business1'
+      link1: 'http://localhost:8000/capacity/hiddencafe.html',
+      img: '../images/36.jpeg',
+      cap: '<br>' + 'Indoor Seats Available: 3/12' + '<br>' + 'Outdoor Seats Available: 13/13'
     },
     {
       name: 'Starbucks',
       position: {lat: 37.869360387588706, lng: -122.26807416824197},
       address: '2224 Shattuck Ave., Berkeley, CA 94704',
       phone: '(510) 843-6806',
-      link1: 'http://localhost:8000/capacity/starbucks.html'
+      link1: 'http://localhost:8000/capacity/starbucks.html',
+      img: '../images/59.webp',
+      cap: '<br>' + 'Indoor Seats Available: 15/35' + '<br>' + 'Outdoor Seats Available: 1/5'
     },
     {
       name: 'Romeos Coffee',
       position: {lat: 37.86551334048166, lng: -122.25833976143569},
       address: '2499 Telegraph Ave, Berkeley, CA 94704',
       phone: '(510) 209-2464',
-      link1: 'https://www.example.com/business3'
+      link1: 'http://localhost:8000/capacity/romeos.html',
+      img: '../images/20.webp',
+      cap: '<br>' + 'Indoor Seats Available: 36/45'
     },
     {
       name: 'Flames Coffee',
       position: {lat: 37.87221443631031, lng: -122.25781554894198},
       address: '420 South Hall Rd, Berkeley, CA 94704',
       phone: '(510) 642-5215',
-      link1: 'https://www.example.com/business4'
+      link1: 'http://localhost:8000/capacity/flames.html',
+      img: '../images/100.png',
+      cap: '<br>' + 'Indoor Seats Available: 0/22' + '<br>' + 'Outdoor Seats Available: 0/99'
     }
   ];
 
@@ -221,10 +223,11 @@
     });
 
     var infowindow = new google.maps.InfoWindow({
-      content: '<h3>' + cafe.name + '</h3><p>' + cafe.address + '<br>' + cafe.phone + 
-        '</p><p><a href="/customdrink">Add New Drink</a></p>' + '<u>' + 'Capacity' + '</u>' + 
-          "<div style='text-align:center'><img src='59.webp' style='width: 100px; height: 100px;'>" +
-            '</p><p><a href="' + cafe.link1 + '">Detailed Capacity</a></p>' 
+      content: '<h4>' + cafe.name + '</h4><p>' + cafe.address + '<br>' + cafe.phone + 
+        '</p><p><a href="/customdrink">Add New Drink</a></p>' +
+        '<u>' + 'Capacity' + '</u>' + 
+          "<div style='text-align:center'><img src=" + cafe.img + " style='width: 100px; height: 100px;'>" + 
+            cafe.cap + '</p><p><a href="' + cafe.link1 + '"> More about this Coffee Stop </a></p>'
     });
 
     marker.addListener('click', function() {
