@@ -35,11 +35,27 @@ app.get('/customdrink', function (req, res) {
     res.sendFile(publicPath + '/customdrink.html');
 });
 
-app.get('/capacity', function (req, res) {
-    res.sendFile(publicPath + '/capacity.html');
+app.get('/map', function (req, res) {
+    res.sendFile(publicPath + '/map.html');
 });
 app.get('/history', function (req, res) {
     res.sendFile(publicPath + '/history.html');
+});
+
+app.get('/add', function (req, res) {
+    res.sendFile(publicPath + '/adddrink.html');
+});
+
+app.get('/shownew', function (req, res) {
+    res.sendFile(publicPath + '/showdrinknew.html');
+});
+
+app.get('/show1', function (req, res) {
+    res.sendFile(publicPath + '/showdrink1.html');
+});
+
+app.get('/show2', function (req, res) {
+    res.sendFile(publicPath + '/showdrink2.html');
 });
 
 //run this server by entering "node App.js" using your command line. 
