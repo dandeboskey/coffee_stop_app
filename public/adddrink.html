@@ -158,7 +158,7 @@
       }
 
       // Ensure that syrup pumps is a positive integer
-      if (syrupPumps <= 0 || !Number.isInteger(parseInt(syrupPumps))) {
+      if (syrupPumps < 0 || !Number.isInteger(parseInt(syrupPumps))) {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
