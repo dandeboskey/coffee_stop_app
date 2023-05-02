@@ -10,18 +10,38 @@
   <link rel="stylesheet" type="text/css" href="/css/main.css" />
   <script src="/vendors/jquery/jquery-3.3.1.min.js"></script>
   <script src="/vendors/jquery-ui/jquery-ui.min.js"></script>
-</head>
 
-<style>
-  h1 {
-    margin-top: 1.5rem;
-    font-size: 2.5rem;
-    font-weight: bold;
-  }
-  h4 {
-    font-family:'Avenir', sans-serif;
-  }
-</style>
+  <style>
+    h1 {
+      margin-top: 1.5rem;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    h4 {
+      font-family: 'Avenir', sans-serif;
+    }
+    .image-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .image-item {
+      margin: 10px;
+      text-align: center;
+    }
+    .scroll-down {
+      text-align: center;
+      cursor: pointer;
+    }
+  </style>
+
+  <script>
+    function scrollToNextElement() {
+      const nextElement = document.querySelector('.image-container');
+      nextElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</head>
 
 <body>
   <header>
@@ -51,7 +71,7 @@
         </div>
       </div>
     </nav>
-   </header>
+  </header>
   <main>
     <section class="container">
       <br>
@@ -65,8 +85,32 @@
   
       <p class="slogan text-center">A single app to deliver all of your cafe needs, from ordering to studying</p>
     </section>
+
+    <!-- Images with captions -->
+    <section class="container image-container">
+      <div class="image-item">
+        <img src="/images/capacity.png" alt="your_image_description" width="250" height="250">
+        <br>
+        <br>
+        <p>Cafe Capacity</p>
+      </div>
+      <div class="image-item">
+        <img src="/images/customdrink.png" alt="your_image_description" width="250" height="250">
+        <br>
+        <br>
+        <p>Order Custom Drink</p>
+      </div>
+      <div class="image-item">
+        <img src="/images/orderhistory.png" alt="your_image_description" width="250" height="250">
+        <br>
+        <br>
+        <p>Cafe History</p>
+      </div>
+    </section>
   </main>
   
+  <!-- Your existing footer -->
+
   <!-- let's also include these jquery scripts. -->
   <script src="/vendors/jquery/jquery-3.3.1.min.js"></script>
   <script src="/vendors/jquery-ui/jquery-ui.min.js"></script>
