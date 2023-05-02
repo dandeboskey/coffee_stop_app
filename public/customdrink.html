@@ -81,39 +81,29 @@
       <div class="col-md-8 mx-auto">
         <h1 class="text-center mt-5">Recent Custom Drinks</h1>
         <hr>
-        <div id="new-drink" class="card mb-1" style="display: none;">
-          <div class="card-body d-flex align-items-start justify-content-between">
-            <div class="flex-grow-1">
-              <h5 class="card-title mb-1">Mocha</h5>
-              <p class="card-subtitle mb-1 text-muted">at The Hidden Cafe</p>
-            </div>
-            <div class="ml-3">
-              <a href="/shownew" class="btn btn-sm btn-show">Show</a>
-              <a href="#" class="btn btn-sm btn-delete">Delete</a>
-            </div>
-          </div>
+        <div id="custom-drinks-list">
         </div>
-        <div class="card mb-1">
+        <div id="caramel-latte" class="card mb-1">
           <div class="card-body d-flex align-items-start justify-content-between">
             <div class="flex-grow-1">
               <h5 class="card-title mb-1">Caramel Latte</h5>
               <p class="card-subtitle mb-1 text-muted">at Flames Coffee</p>
             </div>
             <div class="ml-3">
-              <a href="/show1" class="btn btn-sm btn-show">Show</a>
-              <a href="#" class="btn btn-sm btn-delete">Delete</a>
+              <a href="/show-caramel-latte" class="btn btn-sm btn-show">Show</a>
+              <a href="#" onclick="removeCaramelLatte()" class="btn btn-sm btn-delete">Delete</a>
             </div>
           </div>
         </div>
-        <div class="card mb-1">
+        <div id="cappucino" class="card mb-1">
           <div class="card-body d-flex align-items-start justify-content-between">
             <div class="flex-grow-1">
               <h5 class="card-title mb-1">Cappucino</h5>
               <p class="card-subtitle mb-1 text-muted">at Starbucks</p>
             </div>
             <div class="ml-3">
-              <a href="/show2" class="btn btn-sm btn-show">Show</a>
-              <a href="#" class="btn btn-sm btn-delete">Delete</a>
+              <a href="/show-cappucino" class="btn btn-sm btn-show">Show</a>
+              <a href="#" onclick="removeCappucino()" class="btn btn-sm btn-delete">Delete</a>
             </div>
           </div>
         </div>
@@ -124,30 +114,84 @@
               <p class="card-subtitle mb-1 text-muted">at Peets</p>
             </div>
             <div class="ml-3">
-              <a href="#" class="btn btn-sm btn-show">Show</a>
+              <a href="/show-espresso" class="btn btn-sm btn-show">Show</a>
               <button onclick="removeEspresso()" class="btn btn-sm btn-delete">Delete</button>
             </div>
           </div>
         </div>
         <div class="text-center mt-4">
-          <a href="/add" onclick="revealNewDrink()" class="btn btn-lg btn-add-drink">Add New Drink</a>
+          <a href="/add" class="btn btn-lg btn-add-drink">Add New Drink</a>
         </div>
       </div>
     </div>
   </div>
   </main>
   <script>
-     if (!(localStorage.getItem('new-drink') == null)) {
-      const displayValue = localStorage.getItem('new-drink');
-      const newDrink = document.getElementById('new-drink');
-      newDrink.style.display = displayValue;
-      localStorage.setItem('new-drink', 'none');
+    // localStorage.clear()
+    const customDrinks = JSON.parse(localStorage.getItem('customDrinks')) || [];
+
+    const customDrinksList = document.getElementById('custom-drinks-list');
+    customDrinks.forEach(customDrinkData => {
+      const customDrink = JSON.parse(customDrinkData);
+
+      const customDrinkCard = `
+        <div id="drink-${customDrink.id}" class="card added-drink mb-1">
+          <div class="card-body d-flex align-items-start justify-content-between">
+            <div class="flex-grow-1">
+              <h5 class="card-title mb-1">${customDrink.name}</h5>
+              <p class="card-subtitle mb-1 text-muted">at ${customDrink.location}</p>
+            </div>
+            <div class="ml-3">
+              <a href="/shownew" class="btn btn-sm btn-show">Show</a>
+              <a href="#" id="remove-${customDrink.id}" class="btn btn-sm btn-delete">Delete</a>
+            </div>
+          </div>
+        </div>`;
+
+      // Add the custom drink card to the custom drinks list
+      customDrinksList.insertAdjacentHTML('beforeend', customDrinkCard);       
+    });
+
+
+
+    // Loop through all the custom drink cards in the list and add a delete button to each one
+    const cards = customDrinksList.querySelectorAll('.added-drink');
+    cards.forEach(card => {
+      const deleteButton = card.querySelector(`.btn-delete`);
+
+      // Add an onclick event handler to the delete button
+      deleteButton.onclick = () => {
+        // Set the display of the custom drink card to "none"
+        const cardId = card.getAttribute('id');
+        const customDrinkId = cardId.split('-')[1];
+        const cardToRemove = document.getElementById(cardId);
+        cardToRemove.style.display = 'none';
+
+        // Remove the custom drink from local storage
+        const updatedCustomDrinks = customDrinks.filter(customDrinkData => {
+          drink = JSON.parse(customDrinkData);
+          return drink.id.toString().localeCompare(customDrinkId) !== 0;
+        });
+        localStorage.setItem('customDrinks', JSON.stringify(updatedCustomDrinks));
+      };
+    });
+
+     function removeCaramelLatte() {
+      const caramel = document.getElementById('caramel-latte');
+      caramel.style.display = 'none';
+     }
+
+     function removeCappucino() {
+      const cappucino = document.getElementById('cappucino');
+      cappucino.style.display = 'none';
      }
 
      function removeEspresso() {
       const espresso = document.getElementById('espresso');
       espresso.style.display = 'none';
      }
+
+     
     
   </script>
   

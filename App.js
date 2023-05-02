@@ -50,12 +50,16 @@ app.get('/shownew', function (req, res) {
     res.sendFile(publicPath + '/showdrinknew.html');
 });
 
-app.get('/show1', function (req, res) {
-    res.sendFile(publicPath + '/showdrink1.html');
+app.get('/show-caramel-latte', function (req, res) {
+    res.sendFile(publicPath + '/show-caramel-latte.html');
 });
 
-app.get('/show2', function (req, res) {
-    res.sendFile(publicPath + '/showdrink2.html');
+app.get('/show-cappucino', function (req, res) {
+    res.sendFile(publicPath + '/show-cappucino.html');
+});
+
+app.get('/show-espresso', function (req, res) {
+    res.sendFile(publicPath + '/show-espresso.html');
 });
 
 //run this server by entering "node App.js" using your command line. 

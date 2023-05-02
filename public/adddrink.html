@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="/vendors/bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.all.min.js"></script>
   <title>Order Custom Drink | Coffee Stop by Team 20</title>
 </head>
 <style>
@@ -104,10 +106,10 @@
           <div class="form-group">
             <label for="drinkSugar">Sugar</label>
             <select class="form-control" id="drinkSugar" style="font-family:'Avenir', sans-serif;">
-              <option>No Sugar</option>
               <option>1 Sugar</option>
               <option>2 Sugars</option>
               <option>3 Sugars</option>
+              <option>No Sugar</option>
             </select>
           </div>
           <div class="form-group">
@@ -123,24 +125,80 @@
             <label for="syrupPumps">Number of Syrup Pumps</label>
             <input type="number" class="form-control" id="syrupPumps" placeholder="Enter number of syrup pumps" style="font-family:'Avenir', sans-serif;">
           </div>
-          <a onclick="submitDrink()" class="btn btn-submit mb-4 mt-1" style="color: var(--accent)">Submit</a>
+          <a onclick="addCustomDrink(event)" class="btn btn-submit mb-4 mt-1" style="color: var(--accent)">Submit</a>
           <a href="/customdrink" class="btn btn-cancel mb-4 mt-1">Cancel</a>
         </form>
       </div>
   </main>
   <script>
-    function submitDrink() {
-      // Store the display property value in local storage
-      localStorage.setItem('new-drink', 'block');
+    
+    function addCustomDrink(event) {
+      event.preventDefault(); // Prevent the form from submitting to a server and refreshing the page
+
+      const name = document.getElementById('drinkName').value;
+      const location = document.getElementById('drinkLocation').value;
+      const temperature = document.getElementById('drinkTemperature').value;
+      const milk = document.getElementById('drinkMilk').value;
+      const sugar = document.getElementById('drinkSugar').value;
+      const syrup = document.getElementById('drinkSyrup').value;
+      const syrupPumps = document.getElementById('syrupPumps').value;
+
+      // Ensure that required fields are filled out
+      if (!name || !location || !temperature || !milk || !sugar || !syrup || !syrupPumps) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Please fill out all of the fields!',
+          confirmButtonColor: '#9C6615',
+          confirmButtonText: 'OK'
+        })
+        return;
+      }
+
+      // Ensure that syrup pumps is a positive integer
+      if (syrupPumps <= 0 || !Number.isInteger(parseInt(syrupPumps))) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Please enter a valid number of syrup pumps!',
+          confirmButtonColor: '#9C6615',
+          confirmButtonText: 'OK'
+        })
+        return;
+      }
+
+      // Increment the number of drinks stored in local storage
+      let numDrinks = parseInt(localStorage.getItem('numDrinks')) || 0;
+      numDrinks++;
+      localStorage.setItem('numDrinks', numDrinks);
+
+      // Store the custom drink data in local storage
+      const customDrinkData = JSON.stringify({
+        id: numDrinks.toString(),
+        name,
+        location,
+        temperature,
+        milk,
+        sugar,
+        syrup,
+        syrupPumps
+      });
+
+      let customDrinks = JSON.parse(localStorage.getItem('customDrinks')) || [];
+      customDrinks.push(customDrinkData);
+      localStorage.setItem('customDrinks', JSON.stringify(customDrinks));
 
       // Navigate to the other page
       window.location.href = '/customdrink';
     }
+
+
     
   </script>
   <script src="/vendors/jquery/jquery-3.3.1.min.js"></script>
   <script src="/vendors/jquery-ui/jquery-ui.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>
