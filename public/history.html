@@ -50,6 +50,13 @@
     .fa-star.selected {
       color: orange;
     }
+    .btn-show {
+      background-color: var(--secondary);
+      color: var(--accent);
+      font-family:'Avenir', sans-serif;
+     
+
+    }
 
   </style>
 </head>
@@ -91,17 +98,23 @@
         <span style="font-weight:bold">Flames Coffee</span>
         <span style="float: right; font-size: 13px">Visited on 4/24/23</span>
         <ul class="coffee-list">
-          <li class="coffee">Caramel Latte
-            <input type="hidden" id="rating" name="rating" value="-1">
-            <span class="rating" style = "float: right ;">
+          <li class="coffee"><div class="coffee-name">Latte
+            
+            <button class="btn btn-sm btn-show" style="float: right;">More Info</button>
+            
+            <input type="hidden"  id="rating" name="rating" value="-1">
+            <span class="rating" style="display: none; float: right;">
               <i class="ratings_stars fa fa-star" data-rating="1"></i>
               <i class="ratings_stars fa fa-star" data-rating="2"></i>
               <i class="ratings_stars fa fa-star" data-rating="3"></i>
               <i class="ratings_stars fa fa-star" data-rating="4"></i>
               <i class="ratings_stars fa fa-star" data-rating="5"></i>
             </span>
+            
+            </div>
           </li>
           <li class="coffee">Americana
+            <button onclick="removeEspresso()" class="btn btn-sm btn-show">More Info</button>
             <input type="hidden" id="rating" name="rating" value="-1">
             <span class="rating" style = "float: right ;">
               <i class="ratings_stars fa fa-star" data-rating="1"></i>
@@ -110,9 +123,10 @@
               <i class="ratings_stars fa fa-star" data-rating="4"></i>
               <i class="ratings_stars fa fa-star" data-rating="5"></i>
             </span>
+
           </li>
           <li class="coffee">Cafe Mocha
-
+            <button class="btn btn-sm btn-show">More Info</button>
             <input type="hidden" id="rating" name="rating" value="-1">
             <span class="rating" style = "float: right ;">
               <i class="ratings_stars fa fa-star" data-rating="1"></i>
@@ -141,7 +155,7 @@
               <i class="ratings_stars fa fa-star" data-rating="5"></i>
             </span>
           </li>
-          <li class="coffee">White Chocholate Mocha
+          <li class="coffee">White Mocha
             <input type="hidden" id="rating" name="rating" value="-1">
             <span class="rating" style = "float: right ;">
               <i class="ratings_stars fa fa-star" data-rating="1"></i>
@@ -505,6 +519,15 @@
     function showRating() {
       document.getElementById("rating").style.display = "block";
     }
+    const dropdownButton = document.querySelector('.btn-show');
+    const dropdownContent = document.querySelector('.rating');
+
+    dropdownButton.addEventListener('click', function() {
+      event.stopPropagation();
+      console.log("hi");
+      dropdownContent.classList.toggle('active');
+    });
+
 
 
     $('.rating').on('click', '.ratings_stars', function () { //$('.rating').on('click', '.ratings_stars', function ()
@@ -518,6 +541,64 @@
     
       $('#rating').val(star.data('rating'))
     });
+
+    // get values in localStorage
+    const customDrinks = JSON.parse(localStorage.getItem('customDrinks')) || [];
+
+    const customDrinksList = document.getElementById('custom-drinks-list');
+    var customDrink;
+    customDrinks.forEach(customDrinkData => {
+      customDrink = JSON.parse(customDrinkData);
+      console.log(customDrink);
+    }); 
+      
+    const cafeList = document.querySelector('.cafe-list');
+    const newCafe = `
+        <div class="cafe" style="font-family:Optima, serif; margin-bottom:0;">
+            <img src="/images/hidden-cafe.png" width="30" height="30" class="d-inline-block align-top" style="border-radius:50%">
+            <span style="font-weight:bold">The Hidden Cafe</span>
+            <span style="float: right; font-size: 13px">Visited on 5/1/23</span>
+            <ul class="coffee-list">
+                <li class="coffee">${customDrink.name}
+                    <input type="hidden" id="rating" name="rating" value="-1">
+                    <span class="rating" style = "float: right ;">
+                        <i class="ratings_stars fa fa-star" data-rating="1"></i>
+                        <i class="ratings_stars fa fa-star" data-rating="2"></i>
+                        <i class="ratings_stars fa fa-star" data-rating="3"></i>
+                        <i class="ratings_stars fa fa-star" data-rating="4"></i>
+                        <i class="ratings_stars fa fa-star" data-rating="5"></i>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    `;
+
+    
+    const newCafeElement = document.createElement('div');
+    newCafeElement.innerHTML = newCafe;
+    newCafeElement.addEventListener('click', function() {
+      this.querySelector('.coffee-list').classList.toggle('active');
+    });
+    cafeList.insertAdjacentElement('beforebegin', newCafeElement);
+    newCafeElement.innerHTML = newCafe;
+
+
+
+  // Get all the buttons with class 'btn-show'
+const buttons = document.querySelectorAll('.btn-show');
+
+// Loop through each button and add a click event listener
+$(".btn-show").on("click", function() {
+  event.stopPropagation();
+  $(this).siblings(".rating").toggle();
+});
+
+
+
+    
+
+    
+    
   </script>
   <script src="/vendors/jquery/jquery-3.3.1.min.js"></script>
   <script src="/vendors/jquery-ui/jquery-ui.min.js"></script>
