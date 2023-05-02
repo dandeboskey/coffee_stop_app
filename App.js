@@ -46,8 +46,8 @@ app.get('/add', function (req, res) {
     res.sendFile(publicPath + '/adddrink.html');
 });
 
-app.get('/shownew', function (req, res) {
-    res.sendFile(publicPath + '/showdrinknew.html');
+app.get('/show-new-drink', function (req, res) {
+    res.sendFile(publicPath + '/show-new-drink.html');
 });
 
 app.get('/show-caramel-latte', function (req, res) {

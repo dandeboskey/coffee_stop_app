@@ -142,7 +142,7 @@
               <p class="card-subtitle mb-1 text-muted">at ${customDrink.location}</p>
             </div>
             <div class="ml-3">
-              <a href="/shownew" class="btn btn-sm btn-show">Show</a>
+              <button id="show-new-drink" class="btn btn-sm btn-show" data-drink='${JSON.stringify(customDrink)}''>Show</button>
               <a href="#" id="remove-${customDrink.id}" class="btn btn-sm btn-delete">Delete</a>
             </div>
           </div>
@@ -174,7 +174,30 @@
         });
         localStorage.setItem('customDrinks', JSON.stringify(updatedCustomDrinks));
       };
+
+      const showButton = card.querySelector(`.btn-show`);
+      // const drinkData = showButton.getAttribute('data-drink');
+      // console.log("drinkData is " + drinkData);
+      showButton.onclick = () => {
+        const drinkData = showButton.getAttribute('data-drink');
+        //  console.log("drinkData is " + drinkData);
+        localStorage.setItem('currentDrinkData', drinkData);
+        window.location.href = '/show-new-drink';
+      }
+
     });
+
+    
+    // Add an onclick event handler to the "Show" button
+    // const showButtons = document.querySelectorAll('#show-new-drink');
+    // showButtons.forEach(button => {
+    //   button.onclick = (event) => {
+    //     const drinkData = event.target.getAttribute('data-drink');
+    //     console.log("drinkData is " + drinkData);
+    //     localStorage.setItem('currentDrinkData', drinkData);
+    //     window.location.href = '/show-new-drink';
+    //   }
+    // });
 
      function removeCaramelLatte() {
       const caramel = document.getElementById('caramel-latte');

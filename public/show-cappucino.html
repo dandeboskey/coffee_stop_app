@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="/vendors/bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="css/main.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
   <title>Show Drink New | Coffee Stop by Team 20</title>
+  <script src="/vendors/jquery/jquery-3.3.1.min.js"></script>
+  <script src="/vendors/jquery-ui/jquery-ui.min.js"></script>
 </head>
 <style>
   .primary {
@@ -49,6 +52,18 @@
     font-family:'Avenir', sans-serif;
     font-weight: light;
     font-size: medium;
+  }
+
+  .fa-star {
+    color: var(--primary);
+  }
+
+  .fa-star:hover {
+    color: var(--highlight);
+  }
+
+  .fa-star.selected {
+    color: var(--highlight);
   }
 
 </style>
@@ -97,7 +112,7 @@
               <ul class="list-group">
                 <li class="list-group-item table-title d-flex justify-content-start align-items-center">
                   Temperature:
-                  <span class="badge badge-primary ml-2">Ice</span>
+                  <span class="badge badge-primary ml-2">Lite Ice</span>
                 </li>
                 <li class="list-group-item table-title d-flex justify-content-start align-items-center">
                   Milk:
@@ -130,13 +145,13 @@
         <form>
             <div class="form-group">
               <label for="rating">Rating (out of 5)</label>
-              <select class="form-control" id="rating" style="font-family:'Avenir', sans-serif;">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
+                <span class="rating" style = "float: center; display:block;">
+                  <i class="ratings_stars fa fa-star" data-rating="1"></i>
+                  <i class="ratings_stars fa fa-star" data-rating="2"></i>
+                  <i class="ratings_stars fa fa-star" data-rating="3"></i>
+                  <i class="ratings_stars fa fa-star" data-rating="4"></i>
+                  <i class="ratings_stars fa fa-star" data-rating="5"></i>
+                </span>
             </div>
             <div class="form-group">
                 <label for="drinkName">Description</label>
@@ -164,6 +179,20 @@
         var submitButton = document.getElementById('submit-button');
         submitButton.style ='display: none';
     }
+
+
+
+    $('.rating').on('click', '.ratings_stars', function () {
+      var star = $(this)
+      var coffeeList = $(star).parents("ul");
+      event.stopPropagation();
+      star.addClass('selected')
+      star.prevAll().addClass('selected')
+      //star.removeClass('selected');
+      star.nextAll().removeClass('selected')
+    
+      $('#rating').val(star.data('rating'))
+    });
   </script>
   <script src="/vendors/jquery/jquery-3.3.1.min.js"></script>
   <script src="/vendors/jquery-ui/jquery-ui.min.js"></script>
