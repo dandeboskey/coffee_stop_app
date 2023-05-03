@@ -72,7 +72,7 @@
   .cafe {
     background-color: #E6D1C0;
     color: #333;
-    padding: 20px;
+    padding: 3%;
     margin: 5px;
     cursor: pointer;
     border-radius: 5px;
@@ -90,7 +90,7 @@
     display: none;
     background-color: #e7d8cb;
     padding: 10px;
-    margin: 0;
+    margin-top: 5%;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
