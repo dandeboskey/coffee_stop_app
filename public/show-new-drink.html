@@ -9,6 +9,7 @@
   <title>Show Drink New | Coffee Stop by Team 20</title>
   <script src="/vendors/jquery/jquery-3.3.1.min.js"></script>
   <script src="/vendors/jquery-ui/jquery-ui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.all.min.js"></script>
 </head>
 <style>
   .primary {
@@ -112,7 +113,7 @@
               <ul class="list-group">
                 <li class="list-group-item table-title d-flex justify-content-start align-items-center">
                   Temperature:
-                  <span id="temperatureBadge" class="badge badge-primary ml-2">Hot</span>
+                  <span id="temperatureBadge" class="badge badge-primary ml-2">Normal Ice</span>
                 </li>
                 <li class="list-group-item table-title d-flex justify-content-start align-items-center">
                   Milk:
@@ -120,15 +121,15 @@
                 </li>
                 <li class="list-group-item table-title d-flex justify-content-start align-items-center">
                   Sugar:
-                  <span id="sugarBadge" class="badge badge-primary ml-2">2</span>
+                  <span id="sugarBadge" class="badge badge-primary ml-2">None</span>
                 </li>
                 <li class="list-group-item table-title d-flex justify-content-start align-items-center">
                   Syrup:
-                  <span id="syrupBadge" class="badge badge-primary ml-2">Caramel</span>
+                  <span id="syrupBadge" class="badge badge-primary ml-2">None</span>
                 </li>
                 <li class="list-group-item table-title d-flex justify-content-start align-items-center">
                   Syrup Pumps:
-                  <span id="pumpsBadge" class="badge badge-primary ml-2" ml-2>3</span>
+                  <span id="pumpsBadge" class="badge badge-primary ml-2" ml-2>0</span>
                 </li>
               </ul>
             </div>
@@ -145,7 +146,7 @@
         <form>
             <div class="form-group">
               <label for="rating">Rating (out of 5)</label>
-                <span class="rating" id="drinkRating" style = "float: center; display:block;">
+                <span class="rating" id="drinkRating" final-rating='0' style = "float: center; display:block;">
                   <i class="ratings_stars fa fa-star" data-rating="1"></i>
                   <i class="ratings_stars fa fa-star" data-rating="2"></i>
                   <i class="ratings_stars fa fa-star" data-rating="3"></i>
@@ -179,9 +180,18 @@
 
     function submitReview(event) {
       event.preventDefault(); // Prevent the form from submitting to a server and refreshing the page
-
-      const rating = document.getElementById('drinkRating').value;
+      const rating = document.getElementById('drinkRating').getAttribute('final-rating');
       const description = document.getElementById('drinkDescription').value;
+      if (!rating || !description) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Please fill out all of the fields!',
+          confirmButtonColor: '#9C6615',
+          confirmButtonText: 'OK'
+        })
+        return;
+      }
       const customDrinkId = customDrink.id;
       let customDrinks = JSON.parse(localStorage.getItem('customDrinks')) || [];
       const updatedCustomDrinks = customDrinks.map(customDrinkData => {
@@ -221,11 +231,15 @@
       star.nextAll().removeClass('selected')
     
       $('#rating').val(star.data('rating'))
+      document.getElementById('drinkRating').setAttribute('final-rating', star.data('rating'));
     });
+
+
   </script>
   <script src="/vendors/jquery/jquery-3.3.1.min.js"></script>
   <script src="/vendors/jquery-ui/jquery-ui.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>
