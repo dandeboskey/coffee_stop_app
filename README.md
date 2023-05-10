@@ -6,23 +6,15 @@ Implementation Timeline:
 
 ## Tasks
 #### Capacity for a Cafe
-
 #### Navigation Bar
-
 #### Home Screen
-
 #### Cafe History
-
 #### Adding a Custom Drink
 
 Ria - Navigation Bar, Cafe History, Tap
-
 Daniel -  Adding a Custom Drink, Cafe History
-
 Dina - Navigation Bar, Capacity for a Cafe
-
 Rushnan - Cafe history, home screen, login page (if time)
-
 CJ - Capacity for a Cafe, Adding a Custom Drink, Design
 
 
