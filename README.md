@@ -5,21 +5,26 @@ CS160 Final Project "Coffee Stop"
 Implementation Timeline:
 
 ## Tasks
-Capacity for a Cafe
+#### Capacity for a Cafe
 
-Navigation Bar
+#### Navigation Bar
 
-Home Screen
+#### Home Screen
 
-Cafe History
+#### Cafe History
 
-Adding a Custom Drink
+#### Adding a Custom Drink
 
 Ria - Navigation Bar, Cafe History, Tap
+
 Daniel -  Adding a Custom Drink, Cafe History
+
 Dina - Navigation Bar, Capacity for a Cafe
+
 Rushnan - Cafe history, home screen, login page (if time)
+
 CJ - Capacity for a Cafe, Adding a Custom Drink, Design
+
 
 ### Week 0 (4/12 - 4/14)
 Add foundation, skeleton files in repo using Bootstrap, JQuery, Hammer.js, …
