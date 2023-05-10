@@ -32,3 +32,11 @@ Implement feedback on web application and design poster for presentation.
 
 Week 3 (5/8 - 5/10)
 5/10 FINAL DELIVERABLES
+
+# How to run the code
+Pull the repository from github and cd into it. 
+
+In your command line, run 'Node App.js' and then open up http://localhost:8000/
+
+The Coffee Stop App should be running!
+
