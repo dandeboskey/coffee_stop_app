@@ -36,7 +36,7 @@ Week 3 (5/8 - 5/10)
 # How to run the code
 Pull the repository from github and cd into it. 
 
-In your command line, run 'Node App.js' and then open up http://localhost:8000/
+In your command line, run `Node App.js` and then open up http://localhost:8000/
 
 The Coffee Stop App should be running!
 
