@@ -6,9 +6,13 @@ Implementation Timeline:
 
 ## Tasks
 Capacity for a Cafe
+
 Navigation Bar
+
 Home Screen
+
 Cafe History
+
 Adding a Custom Drink
 
 Ria - Navigation Bar, Cafe History, Tap
